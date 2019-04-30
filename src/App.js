@@ -79,12 +79,13 @@ class App extends Component {
       }
     }
 
-    if (blackDifference === 3) {
+    if (blackDifference >= 3 ) {
       this.setState({ winStatus: true });
     }
-    else if (redDifference === 3) {
+    else if (redDifference >= 3  ) {
       this.setState({ winStatus: true });
     }
+    
   }
 
   diagonalRightWin() {
@@ -178,11 +179,15 @@ class App extends Component {
   horizontalWin() {
     for (let i = 0; i < this.state.boardStatus.length; i++) {
       let tempArr = [];
+      
       this.state.boardStatus.forEach((column) => {
         tempArr.push(column[i]);
+        
       });
-
-      this.formatWinConditions(tempArr);
+      
+        this.formatWinConditions(tempArr);
+      
+      
     }
   }
 
